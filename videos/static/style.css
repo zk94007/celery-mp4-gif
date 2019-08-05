@@ -1,0 +1,48 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-family: 400;
+}
+
+.f700 { font-weight: 700; }
+.f600 { font-weight: 700; }
+.f400 { font-weight: 400; }
+
+.x-mid {
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 100%;
+}
+
+.padding0 { padding: 0px !important; }
+.padding5 { padding: 5px !important; }
+.padding10 { padding: 10px !important; }
+.padding40 { padding: 40px !important; }
+.paddingtop5 { padding-top: 5px !important; }
+.paddingtop10 { padding-top: 10px !important; }
+.paddingtop20 { padding-top: 20px !important; }
+.paddingtop30 { padding-top: 30px !important; }
+
+.margin0 { margin: 0px !important; }
+.margintop5 { margin-top: 5px !important; }
+.margintop10 { margin-top: 10px !important; }
+.margintop20 { margin-top: 20px !important; }
+.margintop30 { margin-top: 30px !important; }
+.margintop100 { margin-top: 100px !important; }
+.marginbottom5 { margin-bottom: 5px !important; }
+.marginbottom10 { margin-bottom: 10px !important; }
+.marginbottom20 { margin-bottom: 20px !important; }
+.marginbottom30 { margin-bottom: 30px !important; }
+.marginbottom100 { margin-bottom: 100px !important; }
+
+.pointer {
+    cursor: pointer;
+}
+
+.center {
+    text-align: center;
+}
+
+.left-align {
+    text-align: left;
+}

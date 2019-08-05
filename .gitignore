@@ -1,0 +1,79 @@
+*.py[cod]
+.DS_Store
+
+static/videos/*
+static/thumbnails/*
+/.vscode
+
+# C extensions
+*.so
+
+# unnecessary assets
+videos/static/videos
+videos/static/thumbnails
+celery.beat.PersistentScheduler
+
+# Packages
+*.egg
+*.eggs
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Installer logs
+pip-log.txt
+*.log
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+tests/cover
+tests/logs
+
+# Hypothesis
+.hypothesis/
+
+# SSH key files
+.ssh
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+venv
+.venv
+docker_rsa*
+write_file
+.settings/*
+
+/docker/*/secret.yml
+/docker/api/poppy.conf
+/.idea
+*.iml
+*.eml
+
+# temp db file
+db.sqlite3
+*.db
+
+# patch files
+*.patch
+
+#testr files
+.testrepository/*
+
+local_settings.py

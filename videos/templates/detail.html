@@ -1,0 +1,54 @@
+{% extends "_layout.html" %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    video {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+    }
+</style>
+<div class="text-center">
+    <div class="card" style="margin: auto;">
+        <div class="card-header">
+            <h1>Video Play</h1>
+        </div>
+        <div class="card-body">
+            <video controls autoplay loop>
+                <source src="{% static 'videos/'|add:video.video_path %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <form action="" method="post" class="margintop30">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" id="email_send" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript'>
+    var token = '{{csrf_token}}';
+    $('#email_send').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                headers: { "X-CSRFToken": token },
+                type: "POST",
+                data: {
+                    'email': $('#id_email').val(),
+                },
+                url: "{% url 'detail'  video_id=video.id %}",
+                success: function(result) {
+                    alert('Email sent...')
+                },
+                error: function(result) {
+                    alert('Email fail to send...')
+                },
+            })
+    })
+</script>
+{% endblock %}

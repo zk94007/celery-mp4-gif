@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    hostname: rabbitmq
+    image: rabbitmq:latest
+    expose:
+      - 5672
+    restart: on-failure
+  web:
+    environment:
+      - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:  gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 3
+    volumes:
+      - .:/app
+    expose:
+      - 8000
+    depends_on:
+      - rabbitmq
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - .:/app
+    depends_on:
+      - web
+  celery:
+    environment:
+      - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery worker -A core -l info -B -s celery.beat.PersistentScheduler
+    volumes:
+      - .:/app
+    depends_on:
+      - rabbitmq
